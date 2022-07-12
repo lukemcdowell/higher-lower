@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace HigherLowerBackend.Controllers
 {
@@ -9,11 +8,11 @@ namespace HigherLowerBackend.Controllers
     {
 
         [HttpGet]
-        public IEnumerable<Card> Get()
+        public JsonResult Get()
         {
             Deck deck = new Deck();
-            IEnumerable<Card> cards = deck.cards;
-            return cards;
+
+            return new JsonResult(deck.cards);
         }
     }
 }
