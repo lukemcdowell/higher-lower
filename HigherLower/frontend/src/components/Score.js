@@ -1,9 +1,17 @@
 import React from 'react';
-import { Button } from "react-bootstrap";
 
 function Score({correct, incorrect}) {
   return (
-    <h2>Wins: {correct} Losses: {incorrect}</h2>
+    <>
+      <div>
+        <h2 className="score-title">Wins</h2>
+        <h2 className="score-title">Losses</h2>
+      </div>
+      <div>
+        <h2 className="score-count" id="wins">{correct}</h2>
+        <h2 className="score-count" id="losses">{incorrect}</h2>
+      </div>
+    </>
   )
 }
 

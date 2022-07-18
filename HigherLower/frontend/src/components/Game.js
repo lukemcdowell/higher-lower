@@ -6,7 +6,7 @@ import Controls from './Controls';
 import Score from "./Score";
 import PlayAgain from './PlayAgain';
 import GuessCard from "./GuessCard";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 export default class Game extends Component {
 

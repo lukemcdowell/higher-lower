@@ -24,9 +24,32 @@ code {
   transform: translate(-50%, -50%);
 }
 
+.score-title {
+  width: 25%;
+  height: 30px;
+  display: inline-block;
+  text-align: center;
+}
+
+.score-count {
+  width: 25%;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+}
+
+#wins {
+  color: #47a447;
+}
+
+#losses {
+  color: #d2322d;
+}
+
 #cards {
   width: 90%;
 }
+
 
 .card {
   height: auto;
@@ -43,5 +66,51 @@ code {
 
 #controls {
   width: 50%;
+  height:150px;
   padding: 25px 10px 25px 10px;
+}
+
+/* primary button */
+.btn-primary {
+  background-color: #FFF;
+  color: #285e8e;
+  border-color: #3276b1;
+  border-radius: 15px;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active    {
+  background-color: #3276b1;
+  color: #FFF;
+  border-color: #285e8e;
+}
+
+/* success button */
+.btn-success {
+  background-color: #FFF;
+  color: #398439;
+  border-color: #47a447;
+  border-radius: 15px;
+}
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active    {
+  background-color: #47a447;
+  color: #FFF;
+  border-color: #398439;
+}
+
+/* danger button */
+.btn-danger {
+  background-color: #FFF;
+  color: #ac2925;
+  border-color: #d2322d;
+  border-radius: 15px;
+}
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active {
+  background-color: #d2322d;
+  color: #FFF;
+  border-color: #ac2925;
 }
