@@ -1,4 +1,3 @@
-import './App.css';
 import Game from './components/Game';
 import { Container } from "react-bootstrap";
 
@@ -7,7 +6,7 @@ function App() {
     <div className="App">
 
       {/* routes */}
-        <Game />
+      <Game />
         
     </div>
   );
