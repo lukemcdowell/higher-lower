@@ -5,7 +5,8 @@ import Card from "./Card";
 import Controls from './Controls';
 import Score from "./Score";
 import PlayAgain from './PlayAgain';
-import { Row, Col } from "react-bootstrap";
+import GuessCard from "./GuessCard";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default class Game extends Component {
 
@@ -107,7 +108,6 @@ export default class Game extends Component {
         });
     }
 
-    //might have to set next card here for the game to refresh nicely
     handlePlayAgain() {
         let { playAgain, nextCard } = this.state;
         this.setState({
@@ -121,31 +121,27 @@ export default class Game extends Component {
         const {deck, currentCard, nextCard, playAgain, guessResult, score} = this.state;
 
         return(
-            <div>
-                <Row>
+            <Container id="game">
                 <Score {...score} />
-                </Row>
 
                 <h5>Cards remaining: {deck.length+1} </h5>
 
                 
-                    <div className="cards">
-                    <Row>
-                        <Col></Col>
-                        <Col><Card {...currentCard}/></Col>
-                        <Col>{playAgain ? ( <Card {...nextCard}/> ) : ( <BackCard /> )}</Col>
-                        <Col></Col>
-                    </Row>
-                    </div>
+                    <Container id="cards">
+                        <Card {...currentCard}/>
+                        {playAgain ? ( <Card {...nextCard}/> ) : ( <GuessCard /> )}
+                        <BackCard />
+                    </Container>
                 
-            
+                <Container id = "controls">
                 {playAgain ? (
                     <PlayAgain guessResult={guessResult} handlePlayAgain={this.handlePlayAgain}/>
                     ) : ( 
                     <Controls handleClick={this.handleClick} />
                 )}
+                </Container>
 
-            </div>
+            </Container>
         )
     }
 }

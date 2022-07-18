@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:100%;
+}
+
+
+
+#game {
+  border: 3px solid green;
+}
+
+#cards {
+  border: 3px solid blue;
+  width: 90%;
+}
+
+.card {
+  height: auto;
+  width: 30%;
+  display: inline-block;
+  padding: 25px 10px 25px 10px;
+  border: 0px;
+}
+
+#higher, #lower {
+  width: 40%;
+  margin: 10px 10px 10px 10px;
+}
+
+#controls {
+  width: 50%;
+  border: 3px solid brown;
+  padding: 25px 10px 25px 10px;
+}
