@@ -1,10 +1,11 @@
 import React from 'react';
+import { Button } from "react-bootstrap";
 
 function Controls({handleClick}) {
     return (
         <>
-            <button className="higher" onClick={(e) => handleClick(e)}>Higher</button>
-            <button className="lower" onClick={(e) => handleClick(e)}>Lower</button>
+            <Button variant="success" onClick={(e) => handleClick(e)}>Higher</Button>
+            <Button variant="danger" onClick={(e) => handleClick(e)}>Lower</Button>
         </>
     )
 }

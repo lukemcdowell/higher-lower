@@ -3,6 +3,9 @@ import {API_BASE, RANKS} from "../variables";
 import BackCard from './BackCard';
 import Card from "./Card";
 import Controls from './Controls';
+import Score from "./Score";
+import PlayAgain from './PlayAgain';
+import { Row, Col } from "react-bootstrap";
 
 export default class Game extends Component {
 
@@ -115,41 +118,34 @@ export default class Game extends Component {
     }
 
     render() {
-        // find a nicer way to unpack these
         const {deck, currentCard, nextCard, playAgain, guessResult, score} = this.state;
 
         return(
-            <>
-                <br></br>
-                <h3>Wins: {score.correct} Losses: {score.incorrect}</h3>
+            <div>
+                <Row>
+                <Score {...score} />
+                </Row>
 
-                {/*
-                <div>
-                    <button onClick={() => {console.log(deck)}}>Log Deck</button>
-                </div>
-                */}
+                <h5>Cards remaining: {deck.length+1} </h5>
 
-                <br></br>
-                <div className="cards">
-                    <Card {...currentCard}/>
-                    {playAgain ? ( <Card {...nextCard}/> ) : ( <BackCard /> )}
-
-                </div>
-                <br></br>
-
+                
+                    <div className="cards">
+                    <Row>
+                        <Col></Col>
+                        <Col><Card {...currentCard}/></Col>
+                        <Col>{playAgain ? ( <Card {...nextCard}/> ) : ( <BackCard /> )}</Col>
+                        <Col></Col>
+                    </Row>
+                    </div>
+                
+            
                 {playAgain ? (
-                    <>
-                        <h4>Your guess was {guessResult}</h4>
-                        <button className = "playAgain" onClick={this.handlePlayAgain}>Play Again</button>
-                    </> 
+                    <PlayAgain guessResult={guessResult} handlePlayAgain={this.handlePlayAgain}/>
                     ) : ( 
                     <Controls handleClick={this.handleClick} />
                 )}
 
-                <br></br>
-                <br></br>
-                <h3>Remaining cards: {deck.length+1} </h3>
-            </>
+            </div>
         )
     }
 }
