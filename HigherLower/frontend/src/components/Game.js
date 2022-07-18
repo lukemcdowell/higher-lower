@@ -85,7 +85,7 @@ export default class Game extends Component {
 
     handleClick(e) {
         let { playAgain, score } = this.state;
-        let guess = e.target.className;
+        let guess = e.target.id ;
         let result = "";
 
         if (guess === this.compareCards()) {
