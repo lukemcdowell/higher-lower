@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {API_BASE, RANKS} from "../variables";
-import BackCard from './BackCard';
 import Card from "./Card";
 import Controls from './Controls';
 import Score from "./Score";
@@ -130,7 +129,6 @@ export default class Game extends Component {
                     <Container id="cards">
                         <Card {...currentCard}/>
                         {playAgain ? ( <Card {...nextCard}/> ) : ( <GuessCard /> )}
-                        <BackCard />
                     </Container>
                 
                 <Container id = "controls">
