@@ -3,7 +3,7 @@ import { NavDropdown, Navbar, Nav } from "react-bootstrap";
 
 function Navigation() {
   return (
-    <Navbar collapseOnSelect fixed="top" expand="sm" bg="light">
+    <Navbar className="sticky-nav" collapseOnSelect fixed="top" expand="sm" bg="light">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">

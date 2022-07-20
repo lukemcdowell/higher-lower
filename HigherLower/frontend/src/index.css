@@ -18,6 +18,11 @@ code {
 
 }
 
+.sticky-nav {
+  position: sticky;
+  top: 0;
+}
+
 #game {
   position: absolute;
   top: 50%;
