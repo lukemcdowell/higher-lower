@@ -8,11 +8,11 @@ namespace HigherLowerBackend.Controllers
     {
 
         [HttpGet]
-        public JsonResult Get()
+        public async Task<ActionResult<List<Card>>> Get()
         {
             Deck deck = new Deck();
 
-            return new JsonResult(deck.cards);
+            return Ok(deck.cards);
         }
     }
 }
