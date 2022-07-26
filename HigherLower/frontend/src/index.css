@@ -120,3 +120,10 @@ code {
   color: #FFF;
   border-color: #ac2925;
 }
+
+form {
+  max-width:500px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 50px;
+}

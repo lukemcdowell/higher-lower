@@ -11,13 +11,7 @@ namespace HigherLowerBackend.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private static List<User> users = new List<User>
-            {
-                new User
-                {
-                    Id=1,Username="lukemcdo",Password="password",Email="luke@gmail.com"
-                }
-            };
+
         private readonly DataContext _context;
         public UserController(DataContext context)
         {
