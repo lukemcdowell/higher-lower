@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Form, Container, Button} from 'react-bootstrap';
+import {useNavigate} from "react-router-dom";
 import {API_BASE} from "../variables";
 
 
@@ -7,10 +8,20 @@ function SignUp() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newUser = {username, email, password};
+
+    fetch(API_BASE+"User", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newUser)
+    }).then(() => {
+      console.log("new user added");
+      history("/");
+    });
   };
 
   return (
@@ -53,22 +64,10 @@ function SignUp() {
           type="password" 
           placeholder="Password" />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Sign Up
-        </Button>
+        <Button type="submit">Sign Up</Button>
+
 
       </Form>
-
-      <Button onSelect={
-        () => {
-          fetch(API_BASE+"User")
-          .then((response) => { 
-            return response.json();
-        })
-          
-        }
-      }>Get users</Button>
-
     </Container>
   )
 }

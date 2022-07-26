@@ -18,10 +18,13 @@ namespace HigherLowerBackend.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<Score>>> Get()
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<List<Score>>> Get(int userId)
         {
-            return Ok(await _context.Scores.ToListAsync());
+            var scores = await _context.Scores.Where(x => x.UserId == userId).ToListAsync();
+            if (scores == null)
+                return BadRequest("Scores not found");
+            return Ok(scores);
         }
 
         [HttpPost]
