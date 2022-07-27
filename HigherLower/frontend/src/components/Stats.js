@@ -1,5 +1,6 @@
 import React, {useEffect, useState}  from 'react';
 import { API_BASE } from '../variables';
+import { Container, Table } from "react-bootstrap";
 
 function Stats() {
   const [scores, setScores] = useState();
@@ -16,13 +17,31 @@ function Stats() {
   }, []);
 
   return (
-    <div id="stats">
-      {scores && scores.map((score) => (
-        <div className="score" key={score.Id}>
-          <p>{score.Score}</p>
-        </div>
-      ))}
-    </div>
+    <Container id="stats">
+      <br></br>
+      {scores && <h3>High Score: {Math.max(...scores.map(score => parseInt(score.scoreCount)))}</h3>}
+
+      <br></br>
+      <h4>Previous Scores</h4>
+      <Table id="scores" striped bordered >
+        <thead>
+          <tr>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {scores && scores.map((score) => (
+            <tr key={score.id}>
+              <td>{score.scoreCount}</td>
+              <td>{new Date(score.time).toLocaleString()}</td>
+            </tr>
+
+          ))}
+        </tbody>
+      </Table>
+
+    </Container>
   )
 }
 
