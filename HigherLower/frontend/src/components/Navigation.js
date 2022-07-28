@@ -11,15 +11,17 @@ function Navigation() {
 
   return (
     <Navbar className="sticky-nav" collapseOnSelect fixed="top" expand="sm" bg="light">
+      
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto">
-
                 <Nav.Link href="/">Play</Nav.Link>
                 <Nav.Link href="/stats">Stats</Nav.Link>
+
                 {!isAuthenticated && (
                   <NavItem>
                     <Button
+                      variant="secondary"
                       onClick={() => loginWithRedirect()}
                     >
                       Log in
@@ -29,6 +31,7 @@ function Navigation() {
                 {isAuthenticated && (
                   <NavItem>
                     <Button
+                      variant="secondary"
                       onClick={() => logout()}
                     >
                       Log out

@@ -13,7 +13,6 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Game />}></Route>
           <Route exact path='/stats' element={<Stats />}></Route>
-
         </Routes>
     </Router>
 
@@ -22,3 +21,5 @@ function App() {
 }
 
 export default App;
+
+

@@ -38,7 +38,7 @@ function Stats() {
       <br></br>
       {scores && ( 
         <>
-        <h3>Your High Score: {Math.max(...scores.map(score => parseInt(score.scoreCount)))}</h3>
+        <h4>Your High Score: {Math.max(...scores.map(score => parseInt(score.scoreCount)))}</h4>
         <br></br>
         <h4>Previous Scores</h4>
         <Table id="scores" striped bordered >

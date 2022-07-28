@@ -23,7 +23,10 @@ code {
   top: 0;
 }
 
+
 #game {
+  max-height: 80%;
+  max-width: 70%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -119,6 +122,22 @@ code {
   background-color: #d2322d;
   color: #FFF;
   border-color: #ac2925;
+}
+
+/* danger button */
+.btn-secondary {
+  padding: 0px, 2px;;
+  background-color: #FFF;
+  color: #696969;
+  border-color: #cccccc;
+  border-radius: 15px;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+  background-color: #eeeeee;
+  color: #696969;
+  border-color: #cccccc;
 }
 
 form {

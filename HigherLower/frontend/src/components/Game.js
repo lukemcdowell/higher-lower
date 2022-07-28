@@ -101,10 +101,6 @@ class Game extends Component {
         let guess = e.target.id ;
         let result = "";
 
-        console.log(deck.length);
-
-
-
         if (guess === this.compareCards()) {
             result = "correct";
             score.correct += 1;
