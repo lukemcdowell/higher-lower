@@ -22,10 +22,11 @@ namespace HigherLowerBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Score>>> Get()
         {
-            int highScore = _context.Scores.Max(s => s.ScoreCount);
-            var score = await _context.Scores.Where(s => s.ScoreCount == highScore)
-                .OrderByDescending(s => s.ScoreCount).FirstOrDefaultAsync();
-            return Ok(score);
+
+            var highScores = await _context.Scores
+                .OrderByDescending(s => s.ScoreCount).Take(3)
+                .ToListAsync();
+            return Ok(highScores);
         }
 
         [HttpGet("{email}")]

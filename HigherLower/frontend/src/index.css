@@ -147,6 +147,11 @@ form {
   padding: 50px;
 }
 
+#leaderboard {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
 #scores {
   max-width: 60%;
   margin: 0 auto;

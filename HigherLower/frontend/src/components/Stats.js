@@ -5,7 +5,7 @@ import  { useAuth0 } from "@auth0/auth0-react";
 
 function Stats() {
   const [scores, setScores] = useState();
-  const [highScore, setHighScore] = useState();
+  const [leaderboard, setLeaderboard] = useState();
   const { user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function Stats() {
       return res.json();
     })
     .then((data) => {
-      setHighScore(data);
+      setLeaderboard(data);
     });    
 
   });
@@ -33,14 +33,38 @@ function Stats() {
   return (
     <Container id="stats">
       <br></br>
-      {highScore && <h3>High Score: {highScore.scoreCount} - {highScore.email}</h3> }
+      <h3>Leaderboard</h3>
+      {!leaderboard && <h3>Loading High Score...</h3> }
+      {leaderboard && (
+        <Table id="leaderboard" striped bordered >
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Score</th>
+              <th>User</th>
+            </tr>
+          </thead>
+          <tbody>
+            {leaderboard.map((score, index) => (
+              <tr key={score.id}>
+                <td>{index+1}</td>
+                <td>{score.scoreCount}</td>
+                <td>{score.email}</td>
+              </tr>
+
+            ))}
+          </tbody>
+        </Table>
+      )}
+
 
       <br></br>
-      {scores && ( 
+      {!isAuthenticated && <h4>Log in to view score history</h4>}
+      {isAuthenticated && !scores && <h4>Loading scores...</h4>}
+      {isAuthenticated && scores && ( 
         <>
-        <h4>Your High Score: {Math.max(...scores.map(score => parseInt(score.scoreCount)))}</h4>
         <br></br>
-        <h4>Previous Scores</h4>
+        <h4>History</h4>
         <Table id="scores" striped bordered >
           <thead>
             <tr>
@@ -58,6 +82,9 @@ function Stats() {
             ))}
           </tbody>
         </Table>
+        <br></br>
+        <h4>Your High Score: {Math.max(...scores.map(score => parseInt(score.scoreCount)))}</h4>
+
         </>
       )}
     </Container>
