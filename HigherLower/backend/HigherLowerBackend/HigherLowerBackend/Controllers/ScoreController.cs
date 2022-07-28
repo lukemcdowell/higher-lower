@@ -3,6 +3,7 @@ using HigherLowerBackend.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace HigherLowerBackend.Controllers
 {
@@ -18,10 +19,19 @@ namespace HigherLowerBackend.Controllers
             _context = context;
         }
 
-        [HttpGet("{userId}")]
-        public async Task<ActionResult<List<Score>>> Get(int userId)
+        [HttpGet]
+        public async Task<ActionResult<List<Score>>> Get()
         {
-            var scores = await _context.Scores.Where(x => x.UserId == userId).ToListAsync();
+            int highScore = _context.Scores.Max(s => s.ScoreCount);
+            var score = await _context.Scores.Where(s => s.ScoreCount == highScore)
+                .OrderByDescending(s => s.ScoreCount).FirstOrDefaultAsync();
+            return Ok(score);
+        }
+
+        [HttpGet("{email}")]
+        public async Task<ActionResult<List<Score>>> Get(string email)
+        {
+            var scores = await _context.Scores.Where(x => x.Email == email).ToListAsync();
             if (scores == null)
                 return BadRequest("Scores not found");
             return Ok(scores);

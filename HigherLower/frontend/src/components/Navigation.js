@@ -1,7 +1,14 @@
 import React from 'react';
-import { NavDropdown, Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, NavItem, Button } from "react-bootstrap";
+import  { useAuth0 } from "@auth0/auth0-react";
 
 function Navigation() {
+
+  const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
+  const { isAuthenticated } = useAuth0();
+
+
   return (
     <Navbar className="sticky-nav" collapseOnSelect fixed="top" expand="sm" bg="light">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -10,12 +17,26 @@ function Navigation() {
 
                 <Nav.Link href="/">Play</Nav.Link>
                 <Nav.Link href="/rules">Rules</Nav.Link>
-                <NavDropdown title="Account" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="signup">Sign Up</NavDropdown.Item>
-                  <NavDropdown.Item href="signin">Sign In</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="stats">Stats</NavDropdown.Item>
-                </NavDropdown>
+                <Nav.Link href="/stats">Stats</Nav.Link>
+                {!isAuthenticated && (
+                  <NavItem>
+                    <Button
+                      onClick={() => loginWithRedirect()}
+                    >
+                      Log in
+                    </Button>
+                  </NavItem>
+                )}
+                {isAuthenticated && (
+                  <NavItem>
+                    <Button
+                      onClick={() => logout()}
+                    >
+                      Log out
+                    </Button>
+                  </NavItem>
+                )}
+
             </Nav>
             </Navbar.Collapse>
     </Navbar>
