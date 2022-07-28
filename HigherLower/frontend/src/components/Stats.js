@@ -9,6 +9,7 @@ function Stats() {
   const { user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
+
     if (isAuthenticated) {
       fetch(API_BASE + "Score/" + user.email)
       .then(res => {
@@ -27,12 +28,12 @@ function Stats() {
       setHighScore(data);
     });    
 
-  }, []);
+  });
 
   return (
     <Container id="stats">
       <br></br>
-      <h3>High Score: {highScore.scoreCount} - {highScore.email}</h3>
+      {highScore && <h3>High Score: {highScore.scoreCount} - {highScore.email}</h3> }
 
       <br></br>
       {scores && ( 

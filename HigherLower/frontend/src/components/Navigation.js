@@ -16,7 +16,6 @@ function Navigation() {
             <Nav className="m-auto">
 
                 <Nav.Link href="/">Play</Nav.Link>
-                <Nav.Link href="/rules">Rules</Nav.Link>
                 <Nav.Link href="/stats">Stats</Nav.Link>
                 {!isAuthenticated && (
                   <NavItem>
