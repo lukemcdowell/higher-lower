@@ -35,7 +35,7 @@ class Game extends Component {
 
     //gets shuffled deck from backend
     getDeck() {
-
+        
         fetch(API_BASE+"CardGame")
         .then((response) => { 
             return response.json();
