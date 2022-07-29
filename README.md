@@ -1,20 +1,9 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Higher Lower card game implemented with a .NET 6 Core API backend and a React JS frontend.
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+To run the project, you need to run the backend and frontend separately. Run the backend by navigating to the backend solution located at `TDA_LM\HigherLower\backend\HigherLowerBackend\HigherLowerBackend` and using `dotnet run`. To view the API definitions and the data schemas, head to `https://localhost:7087/swagger/index.html`.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+The frontend can then be ran by opening the frontend project located at `TDA_LM\HigherLower\frontend` and running `npm start`. This will open up a webpage with the react app running in it. 
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+If the project is working correctly, you should see two cards displayed on the screen. One will be face up and one face down with a question mark on the back. To play the game, simply guess whether the card to be revealed will be a higher or lower rank than the current card being displayed using the two buttons at the bottom of your screen. 

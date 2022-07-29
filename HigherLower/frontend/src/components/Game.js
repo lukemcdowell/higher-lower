@@ -9,6 +9,7 @@ import GuessCard from "./GuessCard";
 import { Container } from "react-bootstrap";
 import  { withAuth0 } from "@auth0/auth0-react";
 
+//renders all of the components necessary to play the game together
 class Game extends Component {
 
     constructor(props) {
@@ -32,6 +33,7 @@ class Game extends Component {
         this.newGame = this.newGame.bind(this);
     }
 
+    //gets shuffled deck from backend
     getDeck() {
 
         fetch(API_BASE+"CardGame")
@@ -73,6 +75,7 @@ class Game extends Component {
         this.getDeck();
     }
 
+    //gets top card from deck
     getLastCard() {
         const { deck } = this.state;
         let card = deck.pop();
@@ -82,11 +85,11 @@ class Game extends Component {
         return card;
     }
 
+    //compares the current card and next card ranks
     compareCards() {
         const currentCardRank = RANKS[this.state.currentCard.rank];
         const nextCardRank = RANKS[this.state.nextCard.rank];
-        
-        // higher
+
         if (nextCardRank > currentCardRank)
             return "higher";
         else if (nextCardRank < currentCardRank)
@@ -95,6 +98,7 @@ class Game extends Component {
             return "same";
     }
 
+    //handles what happens when the user clicks on the higher or lower buttons
     handleClick(e) {
 
         let { deck, score } = this.state;
@@ -121,6 +125,7 @@ class Game extends Component {
         });
     }
 
+    //handles what happens when the user clicks the play again button
     handlePlayAgain() {
         let { nextCard } = this.state;
 
@@ -131,6 +136,7 @@ class Game extends Component {
         });        
     }
 
+    //handles what happens when the user clicks on the new game button
     newGame() {
         const { score } = this.state;
         const { user, isAuthenticated } = this.props.auth0;
@@ -153,7 +159,6 @@ class Game extends Component {
         }).then(() => {
             console.log("new score added");
         });
-
 
         //reset state
         this.setState({

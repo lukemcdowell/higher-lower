@@ -1,5 +1,6 @@
 import React from 'react';
 
+//displays the number of correct v incorrect guesses
 function Score({correct, incorrect}) {
   return (
     <>

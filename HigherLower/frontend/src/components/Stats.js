@@ -3,6 +3,8 @@ import { API_BASE } from '../variables';
 import { Container, Table } from "react-bootstrap";
 import  { useAuth0 } from "@auth0/auth0-react";
 
+//displays a leaderboard of the top three scores in the database
+//if the user is logged in, displays their play history 
 function Stats() {
   const [scores, setScores] = useState();
   const [leaderboard, setLeaderboard] = useState();

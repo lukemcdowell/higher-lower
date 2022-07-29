@@ -9,7 +9,7 @@ function App() {
 
     <Router>
         <Navigation />
-
+    
         <Routes>
           <Route exact path='/' element={<Game />}></Route>
           <Route exact path='/stats' element={<Stats />}></Route>

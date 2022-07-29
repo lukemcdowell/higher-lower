@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "react-bootstrap";
 
+//buttons for playing the game
 function Controls({handleClick}) {
     return (
         <>

@@ -18,7 +18,6 @@ namespace HigherLowerBackend.Data
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
         }
 
-        public DbSet<User> Users { get; set; }
         public DbSet<Score> Scores { get; set; }
     }
 }

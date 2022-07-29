@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "react-bootstrap";
 
-
+//displays to the user if their guess was correct or not and a play again button
 function PlayAgain(props) {
   return (
     <>

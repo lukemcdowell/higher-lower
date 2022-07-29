@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
+//displays game over popup on screen
 function GameOver(props) {
 
   return (

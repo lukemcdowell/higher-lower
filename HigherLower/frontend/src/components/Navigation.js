@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav, NavItem, Button } from "react-bootstrap";
 import  { useAuth0 } from "@auth0/auth0-react";
 
+//navigation bar at top of screen
 function Navigation() {
 
   const { loginWithRedirect } = useAuth0();

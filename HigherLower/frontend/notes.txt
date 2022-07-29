@@ -1,2 +1,0 @@
-rfce in vscode gives a function template for a new component
-rce in vscode gives a clas template for a new component
